@@ -20,7 +20,7 @@ namespace Lasagne__Modern_UI_
             dbConnection = new SQLiteConnection("Data Source=Database.sqlite;Version=3;");
             dbConnection.Open();
 
-            string sql = "create table if not exists sync (name varchar(100),First_Folder varchar(500), Second_Folder varchar(500),is_two_way varchar(10))";
+            string sql = "CREATE TABLE if not exists 'sync' (	'S no'	INTEGER PRIMARY KEY AUTOINCREMENT,	'name'	varchar(100) NOT NULL,	'First_Folder'	varchar(500) NOT NULL,	'Second_Folder'	varchar(500) NOT NULL,	'is_two_way'	integer(10) NOT NULL);";
             SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
             command.ExecuteNonQuery();
             dbConnection.Close();
