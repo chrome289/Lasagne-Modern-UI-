@@ -8,8 +8,8 @@
              d:DesignHeight="480" d:DesignWidth="660" Background="White"
              mui:ModernFrame.KeepAlive="false">
     <Grid Style="{StaticResource ContentRoot}" Margin="0,0,30,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="480" Width="660">
-        <DataGrid HeadersVisibility="Column" Background="White" ItemsSource="{Binding}" Name="datagrid1" AutoGenerateColumns="False" AllowDrop="True" Margin="49,0,48,101" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" IsManipulationEnabled="True" GridLinesVisibility="Horizontal" >
-            
+        <DataGrid HeadersVisibility="Column" Background="White" ItemsSource="{Binding}" Name="datagrid1" AutoGenerateColumns="False" AllowDrop="True" Margin="49,0,48,110" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" IsManipulationEnabled="True" GridLinesVisibility="Horizontal" >
+
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontWeight" Value="Thin" />
@@ -32,7 +32,7 @@
                 <DataGridTextColumn Header="Two Way" Width="50"  Binding="{Binding Col5}"/>
             </DataGrid.Columns>
         </DataGrid>
-
-        <Button x:Name="bt1" Content="Run Task" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt1_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="260,419,246,25"/>
+        <ProgressBar x:Name="pb1" Visibility="Hidden" Minimum="10" Margin="10,444,-10,10" Value="10" LargeChange="0" Maximum="1" IsIndeterminate="True" />
+        <Button x:Name="bt1" Content="Run Task" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt1_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="253,395,253,41"/>
     </Grid>
 </UserControl>

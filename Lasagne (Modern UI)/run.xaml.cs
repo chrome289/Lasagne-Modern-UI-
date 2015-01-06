@@ -5,17 +5,19 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using FirstFloor.ModernUI.Windows.Navigation;
+using System.ComponentModel;
 
 namespace Lasagne__Modern_UI_
 {
     
     public partial class run : UserControl
     {
-        public static string sdir = "", ddir = "";
+        public static string sdir = "", ddir = "",boo="";
         public static bool is_completed = false;
         public run()
         {
             InitializeComponent();
+            pb1.IsEnabled = false;
             SQLiteConnection m_dbConnection;
             m_dbConnection = new SQLiteConnection("Data Source=Database.sqlite;Version=3;");
             m_dbConnection.Open();
@@ -41,26 +43,12 @@ namespace Lasagne__Modern_UI_
                 name = split[1].Substring(8);
                 first_folder = split[2].Substring(8);
                 second_folder = split[3].Substring(8);
-                string boo = split[4].Substring(8);
+                boo = split[4].Substring(8);
                 boo = boo.TrimEnd(" }".ToCharArray());
                 second_folder = second_folder.TrimEnd(" }".ToCharArray());
                 sdir = first_folder;
                 ddir = second_folder;
-                ProcessDirectory(sdir);
-                if(boo=="True")
-                {
-                    ddir = first_folder;
-                    sdir = second_folder;
-                    ProcessDirectory(sdir);
-                }
-                if (is_completed == true)
-                {
-                    String sMessageBoxText = "Sync task completed";
-                    string sCaption = "Folder Sync";
-                    MessageBoxButton btnMessageBox = MessageBoxButton.OK;
-                    MessageBoxImage icnMessageBox = MessageBoxImage.Information;
-                    MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
-                }
+                sync();
             }
             catch (System.NullReferenceException e1)
             {
@@ -69,6 +57,43 @@ namespace Lasagne__Modern_UI_
                 MessageBoxButton btnMessageBox = MessageBoxButton.OK;
                 MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
                 MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+            }
+        }
+        public void sync()
+        {
+            pb1.Visibility = Visibility.Visible;
+            datagrid1.IsEnabled = false;
+            bt1.IsEnabled = false;
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+            bw.WorkerSupportsCancellation = true;
+            bw.RunWorkerAsync();
+        }
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            pb1.Visibility = Visibility.Hidden;
+            datagrid1.IsEnabled = true;
+            bt1.IsEnabled = true;
+            if (is_completed == true)
+            {
+                String sMessageBoxText = "Sync task completed";
+                string sCaption = "Folder Sync";
+                MessageBoxButton btnMessageBox = MessageBoxButton.OK;
+                MessageBoxImage icnMessageBox = MessageBoxImage.Information;
+                MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
+            }
+        }
+
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            ProcessDirectory(sdir);
+            if (boo == "True")
+            {
+                string temp = sdir;
+                sdir = ddir;
+                ddir = temp;
+                ProcessDirectory(sdir);
             }
         }
         public void ProcessDirectory(string targetDirectory)
