@@ -3,13 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI" 
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="660" Background="White"
              mui:ModernFrame.KeepAlive="false">
+    
     <Grid Style="{StaticResource ContentRoot}" Margin="0,0,30,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="480" Width="660">
-        <DataGrid HeadersVisibility="Column" Background="White" ItemsSource="{Binding}" Name="datagrid1" AutoGenerateColumns="False" AllowDrop="True" Margin="49,0,48,110" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" IsManipulationEnabled="True" GridLinesVisibility="Horizontal" >
-
+        <DataGrid HeadersVisibility="Column" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Background="White" ItemsSource="{Binding}" Name="datagrid1" AutoGenerateColumns="False" AllowDrop="True" Margin="49,0,48,110" IsReadOnly="True" IsManipulationEnabled="True" GridLinesVisibility="Horizontal" RowHeight="30" CanUserResizeRows="False" >
+            
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontWeight" Value="Thin" />
@@ -29,7 +30,7 @@
                 <DataGridTextColumn Header="Name" Width="130" Binding="{Binding Col2}"/>
                 <DataGridTextColumn Header="First Folder" CanUserResize="False" Width="140" Binding="{Binding Col3}"/>
                 <DataGridTextColumn Header="Second Folder" Width="140"  Binding="{Binding Col4}"/>
-                <DataGridTextColumn Header="Two Way" Width="50"  Binding="{Binding Col5}"/>
+                <DataGridTextColumn Header="Two Way" Width="105"  Binding="{Binding Col5}"/>
             </DataGrid.Columns>
         </DataGrid>
         <ProgressBar x:Name="pb1" Visibility="Hidden" Minimum="10" Margin="10,444,-10,10" Value="10" LargeChange="0" Maximum="1" IsIndeterminate="True" />

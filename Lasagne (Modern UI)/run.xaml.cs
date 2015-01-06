@@ -14,6 +14,7 @@ namespace Lasagne__Modern_UI_
     {
         public static string sdir = "", ddir = "",boo="";
         public static bool is_completed = false;
+        public static bool its_on = MainWindow.its_on;
         public run()
         {
             InitializeComponent();
@@ -26,7 +27,6 @@ namespace Lasagne__Modern_UI_
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                //MessageBox.Show(reader.GetString(4));
                 datagrid1.Items.Add(new { Col1 = reader.GetInt16(0), Col2 = reader.GetString(1), Col3 = reader.GetString(2), Col4 = reader.GetString(3), Col5 = reader.GetString(4) });
             }
             m_dbConnection.Close();
@@ -87,6 +87,7 @@ namespace Lasagne__Modern_UI_
 
         private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
+            its_on = true;
             ProcessDirectory(sdir);
             if (boo == "True")
             {
@@ -95,6 +96,7 @@ namespace Lasagne__Modern_UI_
                 ddir = temp;
                 ProcessDirectory(sdir);
             }
+            its_on = false;
         }
         public void ProcessDirectory(string targetDirectory)
         {
