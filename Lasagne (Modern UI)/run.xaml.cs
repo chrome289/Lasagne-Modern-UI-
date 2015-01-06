@@ -13,7 +13,6 @@ namespace Lasagne__Modern_UI_
     {
         public static string sdir = "", ddir = "";
         public static bool is_completed = false;
-
         public run()
         {
             InitializeComponent();
@@ -42,11 +41,18 @@ namespace Lasagne__Modern_UI_
                 name = split[1].Substring(8);
                 first_folder = split[2].Substring(8);
                 second_folder = split[3].Substring(8);
+                string boo = split[4].Substring(8);
+                boo = boo.TrimEnd(" }".ToCharArray());
                 second_folder = second_folder.TrimEnd(" }".ToCharArray());
                 sdir = first_folder;
                 ddir = second_folder;
-                MessageBox.Show(sdir + "      " + ddir);    
                 ProcessDirectory(sdir);
+                if(boo=="True")
+                {
+                    ddir = first_folder;
+                    sdir = second_folder;
+                    ProcessDirectory(sdir);
+                }
                 if (is_completed == true)
                 {
                     String sMessageBoxText = "Sync task completed";
