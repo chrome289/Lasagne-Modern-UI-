@@ -1,4 +1,6 @@
-﻿using Ookii.Dialogs.Wpf;
+﻿using FirstFloor.ModernUI.Windows;
+using FirstFloor.ModernUI.Windows.Navigation;
+using Ookii.Dialogs.Wpf;
 using System;
 using System.Data.SQLite;
 using System.Windows;
@@ -7,9 +9,9 @@ using System.Windows.Controls;
 
 namespace Lasagne__Modern_UI_
 {
-    
     public partial class Create : UserControl
     {
+
         public static bool is_2_way = false;
         public Create()
         {
@@ -25,7 +27,6 @@ namespace Lasagne__Modern_UI_
             command.ExecuteNonQuery();
             dbConnection.Close();
         }
-
         private void bt1_Click(object sender, RoutedEventArgs e)
         {
             VistaFolderBrowserDialog vd = new VistaFolderBrowserDialog();
@@ -43,7 +44,7 @@ namespace Lasagne__Modern_UI_
 
         private void bt3_Click(object sender, RoutedEventArgs e)
         {
-            
+
             SQLiteConnection dbConnection;
             dbConnection = new SQLiteConnection("Data Source=Database.sqlite;Version=3;");
             dbConnection.Open();
@@ -68,6 +69,7 @@ namespace Lasagne__Modern_UI_
             else
                 is_2_way = false;
         }
+
 
     }
 }

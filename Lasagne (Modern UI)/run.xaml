@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Lasagne__Modern_UI_.run"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="660" Background="White"
+             mui:ModernFrame.KeepAlive="false">
+    <Grid Style="{StaticResource ContentRoot}" Margin="0,0,30,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="480" Width="660">
+        <DataGrid HeadersVisibility="Column" Background="White" ItemsSource="{Binding}" Name="datagrid1" AutoGenerateColumns="False" AllowDrop="True" Margin="49,0,48,101" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" IsManipulationEnabled="True" GridLinesVisibility="Horizontal" >
+            
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight" Value="Thin" />
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="FontSize" Value="13"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="#313331"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#FFC1BCBC" Direction="300" RenderingBias="Quality" ShadowDepth="3"/>
+            </DataGrid.Effect>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="S. No."  Width="50" CanUserResize="True" Binding="{Binding Col1}"/>
+                <DataGridTextColumn Header="Name" Width="130" Binding="{Binding Col2}"/>
+                <DataGridTextColumn Header="First Folder" CanUserResize="False" Width="140" Binding="{Binding Col3}"/>
+                <DataGridTextColumn Header="Second Folder" Width="140"  Binding="{Binding Col4}"/>
+                <DataGridTextColumn Header="Two Way" Width="50"  Binding="{Binding Col5}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="bt1" Content="Run Task" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt1_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="260,419,246,25"/>
+    </Grid>
+</UserControl>
