@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using System.Windows.Navigation;
+using FirstFloor.ModernUI.Windows;
 
 namespace Lasagne__Modern_UI_
 {
@@ -16,14 +17,14 @@ namespace Lasagne__Modern_UI_
         private void ModernWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             its_on = run.its_on;
-            if(its_on==true)
+            if (its_on == true)
             {
                 String sMessageBoxText = "Folders are being synced and you dare ABORT ?";
                 string sCaption = "Folder Sync";
                 MessageBoxButton btnMessageBox = MessageBoxButton.OKCancel;
                 MessageBoxImage icnMessageBox = MessageBoxImage.Stop;
                 MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
-                if(rsltMessageBox==MessageBoxResult.OK)
+                if (rsltMessageBox == MessageBoxResult.OK)
                 {
                     e.Cancel = false;
                 }

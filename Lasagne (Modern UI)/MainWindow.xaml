@@ -5,10 +5,15 @@
         Title="Lasagne (Modern UI)" IsTitleVisible="True"
         ContentSource="create.xaml" Width="730" Height="600" HorizontalAlignment="Left" Closing="ModernWindow_Closing" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
-    <mui:ModernWindow.MenuLinkGroups>
+    <mui:ModernWindow.MenuLinkGroups >
         <mui:LinkGroup DisplayName="Create a Task">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="" Source="create.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="Manage Task">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="" Source="manage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="Run a Task">
