@@ -1,11 +1,9 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-using FirstFloor.ModernUI.Windows.Navigation;
-using System.ComponentModel;
 
 namespace Lasagne__Modern_UI_
 {
@@ -19,9 +17,12 @@ namespace Lasagne__Modern_UI_
         {
             InitializeComponent();
             pb1.IsEnabled = false;
+
             SQLiteConnection m_dbConnection;
             m_dbConnection = new SQLiteConnection("Data Source=Database.sqlite;Version=3;");
             m_dbConnection.Open();
+
+            //intializing the table
             string sql = "select * from sync";
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
@@ -29,6 +30,7 @@ namespace Lasagne__Modern_UI_
             {
                 datagrid1.Items.Add(new { Col1 = reader.GetInt16(0), Col2 = reader.GetString(1), Col3 = reader.GetString(2), Col4 = reader.GetString(3), Col5 = reader.GetString(4) });
             }
+
             m_dbConnection.Close();
         }
 
@@ -36,6 +38,7 @@ namespace Lasagne__Modern_UI_
         {
             try
             {
+                //parsing info
                 is_completed = true;
                 string f = datagrid1.SelectedItem.ToString();
                 string[] split = f.Split(",".ToCharArray(), 5);
@@ -61,6 +64,7 @@ namespace Lasagne__Modern_UI_
         }
         public void sync()
         {
+            //handles the background thread
             pb1.Visibility = Visibility.Visible;
             datagrid1.IsEnabled = false;
             bt1.IsEnabled = false;
@@ -72,6 +76,7 @@ namespace Lasagne__Modern_UI_
         }
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            //restoring gui
             pb1.Visibility = Visibility.Hidden;
             datagrid1.IsEnabled = true;
             bt1.IsEnabled = true;
@@ -87,6 +92,7 @@ namespace Lasagne__Modern_UI_
 
         private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
+            //doing work
             its_on = true;
             ProcessDirectory(sdir);
             if (boo == "True")
@@ -126,15 +132,13 @@ namespace Lasagne__Modern_UI_
 
         public void ProcessFile(string path)
         {
-            //create final path
+            //parsing final file path
             int sdir_len = sdir.Length, path_len = path.Length;
-            //MessageBox.Show(sdir + "  " + sdir_len.ToString() + "     " + ddir + "        " + path + "        " + path_len.ToString());
             string cut_sdir_path = path.Substring(sdir_len, (path_len - sdir_len));
             string final_path = ddir + cut_sdir_path;
-
-
             try
             {
+                //actual work
                 if (File.Exists(final_path) == true)
                 {
                     FileInfo f1 = new FileInfo(final_path);
@@ -143,19 +147,21 @@ namespace Lasagne__Modern_UI_
                     {
                         Directory.CreateDirectory(System.IO.Path.GetDirectoryName(final_path));
                         File.Copy(path, final_path, true);
-                        // tb1.Text = tb1.Text + "\n" + final_path;
                     }
                 }
                 else
                 {
                     Directory.CreateDirectory(System.IO.Path.GetDirectoryName(final_path));
                     File.Copy(path, final_path, true);
-                    //tb1.Text = tb1.Text + "\n" + final_path;
                 }
             }
             catch (UnauthorizedAccessException un)
             {
-
+                String sMessageBoxText = "The Application does not have required permissions to write to this drive.\nRestart as administrator or choose another task";
+                string sCaption = "Folder Sync";
+                MessageBoxButton btnMessageBox = MessageBoxButton.OK;
+                MessageBoxImage icnMessageBox = MessageBoxImage.Error;
+                MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
             }
         }
     }

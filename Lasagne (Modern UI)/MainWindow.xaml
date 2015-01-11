@@ -30,6 +30,5 @@
     
     <mui:ModernWindow.TitleLinks>
         <mui:Link DisplayName="settings" Source="/Pages/SettingsPage.xaml" />
-        <mui:Link DisplayName="help" Source="http://mui.codeplex.com" />
     </mui:ModernWindow.TitleLinks>
 </mui:ModernWindow>

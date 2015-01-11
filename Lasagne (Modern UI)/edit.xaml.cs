@@ -1,20 +1,8 @@
-﻿using FirstFloor.ModernUI.Windows.Controls;
-using Ookii.Dialogs.Wpf;
+﻿using Ookii.Dialogs.Wpf;
 using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Lasagne__Modern_UI_
 {
@@ -25,6 +13,8 @@ namespace Lasagne__Modern_UI_
         public edit()
         {
             InitializeComponent();
+
+            //parsing selected task information
             string[] split = word.Split(",".ToCharArray(), 5);
             name = split[1].Substring(8);
             first_folder = split[2].Substring(8);
@@ -38,14 +28,6 @@ namespace Lasagne__Modern_UI_
             if (boo == "True")
                 checkBox1.IsChecked = true;
         }
-        public void cll(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-        private void bt4_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void bt3_Click(object sender, RoutedEventArgs e)
         {
@@ -54,13 +36,18 @@ namespace Lasagne__Modern_UI_
                 name = tb1.Text;
                 first_folder = tb2.Text;
                 second_folder = tb3.Text;
+
                 SQLiteConnection dbConnection;
                 dbConnection = new SQLiteConnection("Data Source=Database.sqlite;Version=3;");
                 dbConnection.Open();
+
+                //updating new info
                 string sql = "update sync set First_Folder=\"" + first_folder + "\",Second_Folder=\"" + second_folder + "\",is_two_way=\"" + boo + "\" where name=\"" + name + "\"";
                 SQLiteCommand command = new SQLiteCommand(sql, dbConnection);
                 command.ExecuteNonQuery();
+
                 dbConnection.Close();
+
                 String sMessageBoxText = "Sync task updated";
                 string sCaption = "Folder Sync";
                 MessageBoxButton btnMessageBox = MessageBoxButton.OK;

@@ -13,8 +13,7 @@
         <TextBox x:Name="tb3" Height="36"  TextWrapping="Wrap" VerticalContentAlignment="Center" FontFamily="Tahoma" FontSize="14" Margin="70,299,80,170"/>
         <Button x:Name="bt1" Content="Browse" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt1_Click"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="439,110,80,359"/>
         <Button x:Name="bt2" Content="Browse"  Width="141" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt2_Click"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="439,241,80,228"/>
-        <Button x:Name="bt3" Content="Save" Height="36" FontSize="14" FontFamily="Tahoma" Click="bt3_Click"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="#FFCCCCCC" Margin="70,445,459,24"/>
-        <Button x:Name="bt4" Content="Discard" Height="36" FontSize="14" FontFamily="Tahoma" Click="bt4_Click"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="#FFCCCCCC" Margin="449,445,80,24"/>
+        <Button x:Name="bt3" Content="Save" FontSize="14" FontFamily="Tahoma" Click="bt3_Click"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="#FFCCCCCC" Margin="255,450,255,29"/>
         <TextBox x:Name="tb1" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Margin="395,45,80,424" VerticalContentAlignment="Center" IsReadOnly="True" />
         <CheckBox x:Name="checkBox1" Content="Two Way Sync" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" VerticalContentAlignment="Center" Margin="70,380,439,95"/>
     </Grid>
