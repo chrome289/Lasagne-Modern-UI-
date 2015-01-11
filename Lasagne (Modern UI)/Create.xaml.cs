@@ -64,12 +64,12 @@ namespace Lasagne__Modern_UI_
 
         private void checkBox1_Checked(object sender, RoutedEventArgs e)
         {
-            if (is_2_way == false)
-                is_2_way = true;
-            else
-                is_2_way = false;
+            is_2_way = true;
         }
 
-
+        private void checkBox1_Unchecked(object sender, RoutedEventArgs e)
+        {
+            is_2_way = false;
+        }
     }
 }

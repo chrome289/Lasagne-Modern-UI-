@@ -16,6 +16,6 @@
         <Button x:Name="bt2" Content="Browse"  Width="141" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt2_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="479,206,80,238"/>
         <Button x:Name="bt3" Content="Create a Sync Task" Height="36" FontSize="14" FontFamily="Tahoma" Click="bt3_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="#FFCCCCCC" Margin="270,396,269,48"/>
         <TextBox x:Name="tb3" Width="215" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Margin="405,10,80,434" VerticalContentAlignment="Center" />
-        <CheckBox x:Name="checkBox1" Content="Two Way Sync" Checked="checkBox1_Checked" VerticalContentAlignment="Center" Margin="90,344,488,108"/>
+        <CheckBox x:Name="checkBox1" Content="Two Way Sync" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" VerticalContentAlignment="Center" Margin="90,344,488,108"/>
     </Grid>
 </UserControl>

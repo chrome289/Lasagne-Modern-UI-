@@ -35,9 +35,17 @@ namespace Lasagne__Modern_UI_
             {
                 Style = (Style)App.Current.Resources["BlankWindow"],
                 Content = new edit(),
-                SizeToContent = SizeToContent.WidthAndHeight
+                SizeToContent = SizeToContent.WidthAndHeight,
+                WindowStartupLocation=WindowStartupLocation.CenterScreen,
+                Title="Edit Task",
+                ResizeMode=ResizeMode.NoResize
             };
             wnd.Show();
+        }
+
+        public void cll(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         private void bt2_Click(object sender, RoutedEventArgs e)
