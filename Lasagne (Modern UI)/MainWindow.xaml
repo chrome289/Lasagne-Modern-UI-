@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-        Title="Lasagne (Modern UI)" IsTitleVisible="True"
+        Title="Sync Station" IsTitleVisible="True"
         ContentSource="create.xaml" Width="730" Height="600" HorizontalAlignment="Left" Closing="ModernWindow_Closing" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
     <mui:ModernWindow.MenuLinkGroups >

@@ -1,0 +1,45 @@
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\Lasagne (Modern UI).exe
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\Lasagne (Modern UI).pdb
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\FirstFloor.ModernUI.dll
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\FirstFloor.ModernUI.xml
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Lasagne (Modern UI).csprojResolveAssemblyReference.cache
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\MainWindow.baml
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Pages\Settings\About.baml
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Pages\Settings\Appearance.baml
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Pages\SettingsPage.baml
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\App.baml
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\MainWindow.g.cs
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Pages\Settings\About.g.cs
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Pages\Settings\Appearance.g.cs
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Pages\SettingsPage.g.cs
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\App.g.cs
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Lasagne (Modern UI)_MarkupCompile.cache
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Lasagne (Modern UI).g.resources
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Lasagne (Modern UI).exe
+c:\users\siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Lasagne (Modern UI).pdb
+C:\Users\Siddharth\Documents\Visual Studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Create.baml
+C:\Users\Siddharth\Documents\Visual Studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Create.g.cs
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\Lasagne (Modern UI).exe.config
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\EntityFramework.dll
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\Ookii.Dialogs.Wpf.dll
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\System.Data.SQLite.dll
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\EntityFramework.xml
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\Ookii.Dialogs.Wpf.xml
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\System.Data.SQLite.xml
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\run.baml
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\run.g.cs
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\manage.baml
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\manage.g.cs
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\edit.baml
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\edit.g.cs
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Lasagne (Modern UI)_Content.g.cs
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\Lasagne (Modern UI).exe.manifest
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\Lasagne (Modern UI).application
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Lasagne (Modern UI).exe.manifest
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Lasagne (Modern UI).application
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\Siddharth\documents\visual studio 2013\Projects\Lasagne (Modern UI)\Lasagne (Modern UI)\obj\Debug\Lasagne (Modern UI).csprojFakesResolveAssemblyReference.cache
