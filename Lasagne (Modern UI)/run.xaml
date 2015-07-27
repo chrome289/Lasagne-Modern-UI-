@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Lasagne__Modern_UI_.run"
+﻿<mui:ModernFrame x:Class="Lasagne__Modern_UI_.run"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,8 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI" 
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="660" Background="White"
-             mui:ModernFrame.KeepAlive="false">
+             mui:ModernFrame.KeepAlive="True"
+             >
     
     <Grid Style="{StaticResource ContentRoot}" Margin="0,0,30,0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="480" Width="660">
         <DataGrid HeadersVisibility="Column" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Background="White" ItemsSource="{Binding}" Name="datagrid1" AutoGenerateColumns="False" AllowDrop="True" Margin="49,0,48,110" IsReadOnly="True" IsManipulationEnabled="True" GridLinesVisibility="Horizontal" RowHeight="30" CanUserResizeRows="False" >
@@ -36,4 +37,4 @@
         <ProgressBar x:Name="pb1" Visibility="Hidden" Minimum="10" Margin="10,444,-10,10" Value="10" LargeChange="0" Maximum="1" IsIndeterminate="True" />
         <Button x:Name="bt1" Content="Run Task" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt1_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="253,395,253,41"/>
     </Grid>
-</UserControl>
+</mui:ModernFrame>

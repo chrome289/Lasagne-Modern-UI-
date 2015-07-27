@@ -5,13 +5,10 @@ using System.Windows;
 using System.Windows.Controls;
 
 
-namespace Lasagne__Modern_UI_
-{
-    public partial class Create : UserControl
-    {
+namespace Lasagne__Modern_UI_ {
+    public partial class Create : UserControl {
         public static bool is_2_way = false;
-        public Create()
-        {
+        public Create() {
             InitializeComponent();
             tb1.Text = "";
             tb2.Text = "";
@@ -25,8 +22,7 @@ namespace Lasagne__Modern_UI_
             command.ExecuteNonQuery();
             dbConnection.Close();
         }
-        private void bt1_Click(object sender, RoutedEventArgs e)
-        {
+        private void bt1_Click(object sender, RoutedEventArgs e) {
             //select folder1
             VistaFolderBrowserDialog vd = new VistaFolderBrowserDialog();
             vd.RootFolder = System.Environment.SpecialFolder.Desktop;
@@ -34,18 +30,15 @@ namespace Lasagne__Modern_UI_
             tb1.Text = vd.SelectedPath;
         }
 
-        private void bt2_Click(object sender, RoutedEventArgs e)
-        {
+        private void bt2_Click(object sender, RoutedEventArgs e) {
             //select folder2
             VistaFolderBrowserDialog vd = new VistaFolderBrowserDialog();
             vd.ShowDialog();
             tb2.Text = vd.SelectedPath;
         }
 
-        private void bt3_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
+        private void bt3_Click(object sender, RoutedEventArgs e) {
+            try {
                 SQLiteConnection dbConnection;
                 dbConnection = new SQLiteConnection("Data Source=Database.sqlite;Version=3;");
                 dbConnection.Open();
@@ -66,8 +59,7 @@ namespace Lasagne__Modern_UI_
                 MessageBoxImage icnMessageBox = MessageBoxImage.Information;
                 MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
             }
-            catch(SQLiteException e1)
-            {
+            catch (SQLiteException e1) {
                 String sMessageBoxText = "This Task Name is already in use";
                 string sCaption = "Folder Sync";
                 MessageBoxButton btnMessageBox = MessageBoxButton.OK;
@@ -76,13 +68,11 @@ namespace Lasagne__Modern_UI_
             }
         }
 
-        private void checkBox1_Checked(object sender, RoutedEventArgs e)
-        {
+        private void checkBox1_Checked(object sender, RoutedEventArgs e) {
             is_2_way = true;
         }
 
-        private void checkBox1_Unchecked(object sender, RoutedEventArgs e)
-        {
+        private void checkBox1_Unchecked(object sender, RoutedEventArgs e) {
             is_2_way = false;
         }
     }
