@@ -5,7 +5,7 @@ using System.Windows.Controls;
 
 namespace Lasagne__Modern_UI_ {
     public partial class manage : UserControl {
-        public static string word = edit.word;
+        public static int no= edit.no;
         public manage() {
             InitializeComponent();
             SQLiteConnection m_dbConnection;
@@ -17,15 +17,20 @@ namespace Lasagne__Modern_UI_ {
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read()) {
-                datagrid1.Items.Add(new { Col1 = reader.GetInt16(0), Col2 = reader.GetString(1), Col3 = reader.GetString(2), Col4 = reader.GetString(3), Col5 = reader.GetString(4) });
+                bool t1 = true, t2 = true; ;
+                if (reader.GetInt16(5) == 0)
+                    t1 = false;
+                if (reader.GetInt16(6) == 0)
+                    t2 = false;
+                datagrid1.Items.Add(new { Col1 = reader.GetInt16(0), Col2 = reader.GetString(1), Col3 = reader.GetString(2), Col4 = reader.GetString(3), Col5 = reader.GetString(4), Col6 = t1, Col7 = t2 });
             }
             m_dbConnection.Close();
         }
 
         private void bt1_Click(object sender, RoutedEventArgs e) {
             //opening the edit window
-            word = datagrid1.SelectedItem.ToString();
-            edit.word = word;
+            no = datagrid1.SelectedIndex;
+            edit.no = no;
             var wnd = new ModernWindow {
                 Style = (Style)App.Current.Resources["BlankWindow"],
                 Content = new edit(),
@@ -39,7 +44,7 @@ namespace Lasagne__Modern_UI_ {
 
         private void bt2_Click(object sender, RoutedEventArgs e) {
             //parsing task name
-            word = datagrid1.SelectedItem.ToString();
+            string word = datagrid1.SelectedItem.ToString();
             string[] split = word.Split(",".ToCharArray(), 5);
             string name = split[1].Substring(8);
 
@@ -74,7 +79,12 @@ namespace Lasagne__Modern_UI_ {
             command = new SQLiteCommand(sql, dbConnection);
             reader = command.ExecuteReader();
             while (reader.Read()) {
-                datagrid1.Items.Add(new { Col1 = reader.GetInt16(0), Col2 = reader.GetString(1), Col3 = reader.GetString(2), Col4 = reader.GetString(3), Col5 = reader.GetString(4) });
+                bool t1 = true, t2 = true; ;
+                if (reader.GetInt16(5) == 0)
+                    t1 = false;
+                if (reader.GetInt16(6) == 0)
+                    t2 = false;
+                datagrid1.Items.Add(new { Col1 = reader.GetInt16(0), Col2 = reader.GetString(1), Col3 = reader.GetString(2), Col4 = reader.GetString(3), Col5 = reader.GetString(4), Col6 = t1, Col7 = t2 });
             }
 
             dbConnection.Close();

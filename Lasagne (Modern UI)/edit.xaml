@@ -9,12 +9,22 @@
         <Label Content="Location of First directory" Height="35" Width="199" FontFamily="Tahoma" FontSize="14" VerticalContentAlignment="Center" Margin="70,109,391,361"/>
         <Label Content="Enter a Name for this task" Height="35" Width="199" FontFamily="Tahoma" FontSize="14" VerticalContentAlignment="Center" Margin="70,45,391,425"/>
         <Label Content="Location of Second Directory" Height="35" Width="199" FontFamily="Tahoma" FontSize="14" VerticalContentAlignment="Center" Margin="70,240,391,230"/>
-        <TextBox x:Name="tb2" Height="36"  TextWrapping="Wrap" VerticalContentAlignment="Center" FontFamily="Tahoma" FontSize="14" Margin="70,169,80,300"/>
-        <TextBox x:Name="tb3" Height="36"  TextWrapping="Wrap" VerticalContentAlignment="Center" FontFamily="Tahoma" FontSize="14" Margin="70,299,80,170"/>
+        <TextBox x:Name="tb2" Height="36"  TextWrapping="Wrap" VerticalContentAlignment="Center" FontFamily="Tahoma" FontSize="14" Margin="70,169,80,300" IsReadOnly="True"/>
+        <TextBox x:Name="tb3" Height="36"  TextWrapping="Wrap" VerticalContentAlignment="Center" FontFamily="Tahoma" FontSize="14" Margin="70,299,80,170" IsReadOnly="True"/>
         <Button x:Name="bt1" Content="Browse" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt1_Click"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="439,110,80,359"/>
         <Button x:Name="bt2" Content="Browse"  Width="141" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt2_Click"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="439,241,80,228"/>
-        <Button x:Name="bt3" Content="Save" FontSize="14" FontFamily="Tahoma" Click="bt3_Click"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="#FFCCCCCC" Margin="255,450,255,29"/>
+        <Button x:Name="bt3" Content="Save" FontSize="14" FontFamily="Tahoma" Click="bt3_Click"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="#FFCCCCCC" Margin="249,469,261,10"/>
         <TextBox x:Name="tb1" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Margin="395,45,80,424" VerticalContentAlignment="Center" IsReadOnly="True" />
-        <CheckBox x:Name="checkBox1" Content="Two Way Sync" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" VerticalContentAlignment="Center" Margin="70,380,439,95"/>
+        <CheckBox x:Name="checkBox1" FontSize="12" FontFamily="Tahoma" Content="Two Way Sync" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" VerticalContentAlignment="Center" Margin="70,380,439,95"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="404,366,0,0" VerticalAlignment="Top" Width="176" IsReadOnly="True" Text="Conflict Resolution" Height="23" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed" SelectedIndex="0">
+            <ComboBoxItem Content="Don't Overwrite" HorizontalAlignment="Left" Width="174"/>
+            <ComboBoxItem Content="Overwrite in Folder 2" HorizontalAlignment="Left" Width="174"/>
+
+        </ComboBox>
+        <ComboBox x:Name="comboBox2" IsEnabled="False" HorizontalAlignment="Left" Margin="404,417,0,0" VerticalAlignment="Top" Width="176" IsReadOnly="True" Text="Conflict Resolution" Height="23" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed" SelectedIndex="0">
+            <ComboBoxItem Content="Don't Overwrite" HorizontalAlignment="Left" Width="174"/>
+            <ComboBoxItem Content="Overwrite in Folder 1" HorizontalAlignment="Left" Width="174"/>
+        </ComboBox>
+        <Label x:Name="label" FontSize="12" FontFamily="Tahoma" Content="Conflict Resolution" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="293,394,261,0" VerticalAlignment="Top" Height="16"/>
     </Grid>
 </UserControl>

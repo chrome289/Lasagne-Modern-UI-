@@ -30,7 +30,9 @@
                 <DataGridTextColumn Header="Name" Width="130" Binding="{Binding Col2}"/>
                 <DataGridTextColumn Header="First Folder" CanUserResize="False" Width="140" Binding="{Binding Col3}"/>
                 <DataGridTextColumn Header="Second Folder" Width="140"  Binding="{Binding Col4}"/>
-                <DataGridTextColumn Header="Two Way" Width="105"  Binding="{Binding Col5}"/>
+                <DataGridTextColumn Header="Two Way" Width="85"  Binding="{Binding Col5}"/>
+                <DataGridTextColumn Header="Overwrite in Folder 2" Width="135"  Binding="{Binding Col6}"/>
+                <DataGridTextColumn Header="Overwrite in Folder 1" Width="135"  Binding="{Binding Col7}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="bt1" Content="Edit Task" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt1_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="115,399,391,45"/>

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using System;
 using System.Windows;
+using FirstFloor.ModernUI.Windows;
 using FirstFloor.ModernUI.Windows.Navigation;
+using Hardcodet.Wpf.TaskbarNotification;
 
 namespace Lasagne__Modern_UI_ {
 
@@ -11,7 +14,7 @@ namespace Lasagne__Modern_UI_ {
         }
 
         private void ModernWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            if (Sync_Station.Properties.Settings.Default.minimize) {
+            if (Properties.Default.minimize) {
                 e.Cancel = true;
                 this.ShowInTaskbar = false;
             }

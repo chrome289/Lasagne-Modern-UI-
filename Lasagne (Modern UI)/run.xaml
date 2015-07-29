@@ -32,6 +32,8 @@
                 <DataGridTextColumn Header="First Folder" CanUserResize="False" Width="140" Binding="{Binding Col3}"/>
                 <DataGridTextColumn Header="Second Folder" Width="140"  Binding="{Binding Col4}"/>
                 <DataGridTextColumn Header="Two Way" Width="105"  Binding="{Binding Col5}"/>
+                <DataGridTextColumn Header="Overwrite in Folder 2" Width="135"  Binding="{Binding Col6}"/>
+                <DataGridTextColumn Header="Overwrite in Folder 1" Width="135"  Binding="{Binding Col7}"/>
             </DataGrid.Columns>
         </DataGrid>
         <ProgressBar x:Name="pb1" Visibility="Hidden" Minimum="10" Margin="10,444,-10,10" Value="10" LargeChange="0" Maximum="1" IsIndeterminate="True" />

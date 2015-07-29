@@ -1,10 +1,9 @@
-﻿using FirstFloor.ModernUI.Windows.Navigation;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows;
-using System.Windows.Controls;
+using FirstFloor.ModernUI.Windows.Navigation;
 
 namespace Lasagne__Modern_UI_ {
     public interface IContent {
@@ -15,14 +14,15 @@ namespace Lasagne__Modern_UI_ {
     }
     public partial class run : IContent {
         public static string sdir = "", ddir = "", boo = "";
-        public static bool is_completed = false,its_on = MainWindow.its_on, scouting = false,wasTerminated=false;
+        public static bool is_completed = false, its_on = MainWindow.its_on, scouting = false, wasTerminated = false, overwrite2, overwrite1, goingReverse = false;
         public static int fileCount = 0;
         public static double size = 0.0;
+
+        public static SQLiteConnection m_dbConnection;
         public run() {
             InitializeComponent();
             pb1.IsEnabled = false;
 
-            SQLiteConnection m_dbConnection;
             m_dbConnection = new SQLiteConnection("Data Source=Database.sqlite;Version=3;");
             m_dbConnection.Open();
 
@@ -31,7 +31,12 @@ namespace Lasagne__Modern_UI_ {
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read()) {
-                datagrid1.Items.Add(new { Col1 = reader.GetInt16(0), Col2 = reader.GetString(1), Col3 = reader.GetString(2), Col4 = reader.GetString(3), Col5 = reader.GetString(4) });
+                bool t1 = true, t2 = true; ;
+                if (reader.GetInt16(5) == 0)
+                    t1 = false;
+                if (reader.GetInt16(6) == 0)
+                    t2 = false;
+                datagrid1.Items.Add(new { Col1 = reader.GetInt16(0), Col2 = reader.GetString(1), Col3 = reader.GetString(2), Col4 = reader.GetString(3), Col5 = reader.GetString(4), Col6 = t1, Col7 = t2 });
             }
             m_dbConnection.Close();
         }
@@ -39,18 +44,23 @@ namespace Lasagne__Modern_UI_ {
         private void bt1_Click(object sender, RoutedEventArgs e) {
             try {
                 //parsing info
+                m_dbConnection = new SQLiteConnection("Data Source=Database.sqlite;Version=3;");
+                m_dbConnection.Open();
                 is_completed = true;
-                string f = datagrid1.SelectedItem.ToString();
-                string[] split = f.Split(",".ToCharArray(), 5);
-                string name, first_folder, second_folder;
-                name = split[1].Substring(8);
-                first_folder = split[2].Substring(8);
-                second_folder = split[3].Substring(8);
-                boo = split[4].Substring(8);
-                boo = boo.TrimEnd(" }".ToCharArray());
-                second_folder = second_folder.TrimEnd(" }".ToCharArray());
-                sdir = first_folder;
-                ddir = second_folder;
+                int f = datagrid1.SelectedIndex + 1;
+                string name, sql = "select * from sync where no = " + f;
+                SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+                SQLiteDataReader reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    bool t1 = true, t2 = true; ;
+                    if (reader.GetInt16(5) == 0)
+                        t1 = false;
+                    if (reader.GetInt16(6) == 0)
+                        t2 = false;
+                    name = reader.GetString(1); sdir = reader.GetString(2); ddir = reader.GetString(3);
+                    boo = reader.GetString(4); overwrite2 = t1; overwrite1 = t2;
+                }
+                m_dbConnection.Close();
                 sync();
             }
             catch (NullReferenceException e1) {
@@ -89,9 +99,10 @@ namespace Lasagne__Modern_UI_ {
         private void bw_DoWork(object sender, DoWorkEventArgs e) {
             string temp;
             //scouting
-            scouting = true;fileCount = 0;size = 0.0;
-            ProcessDirectory(sdir); 
+            scouting = true; fileCount = 0; size = 0.0;
+            ProcessDirectory(sdir);
             if (boo == "True") {
+                goingReverse = true;
                 temp = sdir;
                 sdir = ddir;
                 ddir = temp;
@@ -101,7 +112,8 @@ namespace Lasagne__Modern_UI_ {
             sdir = ddir;
             ddir = temp;
             scouting = false;
-            String sMessageBoxText = fileCount + " File/s totaling to " + Math.Round(size/1024/1024,3) + " MB to be synced \r\nContinue ?";
+            goingReverse = false;
+            String sMessageBoxText = fileCount + " File/s totaling to " + Math.Round(size / 1024 / 1024, 3) + " MB to be synced \r\nContinue ?";
             string sCaption = "Folder Sync";
             MessageBoxButton btnMessageBox = MessageBoxButton.OKCancel;
             MessageBoxImage icnMessageBox = MessageBoxImage.Question;
@@ -118,13 +130,14 @@ namespace Lasagne__Modern_UI_ {
             if (its_on) {
                 ProcessDirectory(sdir);
                 if (boo == "True") {
+                    goingReverse = true;
                     temp = sdir;
                     sdir = ddir;
                     ddir = temp;
                     ProcessDirectory(sdir);
                 }
             }
-            its_on = false;
+            its_on = false; goingReverse = false;
         }
         public void ProcessDirectory(string targetDirectory) {
             try {
@@ -146,7 +159,7 @@ namespace Lasagne__Modern_UI_ {
                 MessageBoxImage icnMessageBox = MessageBoxImage.Error;
                 MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
             }
-            catch(Exception e) {
+            catch (Exception e) {
                 String sMessageBoxText = e.InnerException.ToString();
                 string sCaption = "Folder Sync";
                 MessageBoxButton btnMessageBox = MessageBoxButton.OK;
@@ -164,8 +177,8 @@ namespace Lasagne__Modern_UI_ {
                 //actual work
                 if (File.Exists(final_path) == true) {
                     FileInfo f1 = new FileInfo(final_path);
-                    FileInfo f2 = new FileInfo(path);
-                    if (f1.Length != f2.Length) {
+                    //FileInfo f2 = new FileInfo(path);
+                    if ((goingReverse && overwrite1) || (!goingReverse && overwrite2)) {
                         if (!scouting) {
                             Directory.CreateDirectory(Path.GetDirectoryName(final_path));
                             File.Copy(path, final_path, true);
@@ -195,7 +208,7 @@ namespace Lasagne__Modern_UI_ {
                 MessageBoxImage icnMessageBox = MessageBoxImage.Error;
                 MessageBoxResult rsltMessageBox = MessageBox.Show(sMessageBoxText, sCaption, btnMessageBox, icnMessageBox);
             }
-            catch(Exception e) {
+            catch (Exception e) {
                 String sMessageBoxText = e.InnerException.ToString();
                 string sCaption = "Folder Sync";
                 MessageBoxButton btnMessageBox = MessageBoxButton.OK;

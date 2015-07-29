@@ -10,12 +10,23 @@
         <Label Content="Location of First directory" Height="35" Width="199" FontFamily="Tahoma" FontSize="14" VerticalContentAlignment="Center" Margin="90,65,411,362"/>
         <Label Content="Enter a Name for this task" Height="35" Width="199" FontFamily="Tahoma" FontSize="14" VerticalContentAlignment="Center" Margin="90,10,411,435"/>
         <Label Content="Location of Second Directory" Height="35" Width="199" FontFamily="Tahoma" FontSize="14" VerticalContentAlignment="Center" Margin="90,205,411,240"/>
-        <TextBox x:Name="tb1" Height="36"  TextWrapping="Wrap" Width="530" VerticalContentAlignment="Center" FontFamily="Tahoma" FontSize="14" Margin="90,131,80,313"/>
-        <TextBox x:Name="tb2" Height="36"  TextWrapping="Wrap" Width="530" VerticalContentAlignment="Center" FontFamily="Tahoma" FontSize="14" Margin="90,268,80,176"/>
+        <TextBox x:Name="tb1" Height="36"  TextWrapping="Wrap" Width="530" VerticalContentAlignment="Center" FontFamily="Tahoma" FontSize="14" Margin="90,131,80,313" IsReadOnly="True"/>
+        <TextBox x:Name="tb2" Height="36"  TextWrapping="Wrap" Width="530" VerticalContentAlignment="Center" FontFamily="Tahoma" FontSize="14" Margin="90,268,80,176" IsReadOnly="True"/>
         <Button x:Name="bt1" Content="Browse"  Width="141" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt1_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="479,75,80,369"/>
         <Button x:Name="bt2" Content="Browse"  Width="141" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Click="bt2_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFCCCCCC" Margin="479,206,80,238"/>
-        <Button x:Name="bt3" Content="Create a Sync Task" Height="36" FontSize="14" FontFamily="Tahoma" Click="bt3_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="#FFCCCCCC" Margin="270,396,269,48"/>
+        <Button x:Name="bt3" Content="Create a Sync Task" Height="36" FontSize="14" FontFamily="Tahoma" Click="bt3_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="#FFCCCCCC" Margin="270,434,269,10"/>
         <TextBox x:Name="tb3" Width="215" Height="36" FontSize="14" FontFamily="Tahoma" BorderThickness="1" Margin="405,10,80,434" VerticalContentAlignment="Center" />
-        <CheckBox x:Name="checkBox1" Content="Two Way Sync" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" VerticalContentAlignment="Center" Margin="90,344,488,108"/>
+        <CheckBox x:Name="checkBox1" FontSize="12" FontFamily="Tahoma" Content="Two Way Sync" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" VerticalContentAlignment="Center" Margin="90,344,488,108"/>
+      
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="444,327,0,0" VerticalAlignment="Top" Width="176" IsReadOnly="True" Text="Conflict Resolution" Height="23" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed" SelectedIndex="0">
+            <ComboBoxItem Content="Don't Overwrite" HorizontalAlignment="Left" Width="174"/>
+            <ComboBoxItem Content="Overwrite in Folder 2" HorizontalAlignment="Left" Width="174"/>
+            
+        </ComboBox>
+        <ComboBox x:Name="comboBox2" IsEnabled="False" HorizontalAlignment="Left" Margin="444,375,0,0" VerticalAlignment="Top" Width="176" IsReadOnly="True" Text="Conflict Resolution" Height="23" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed" SelectedIndex="0">
+            <ComboBoxItem Content="Don't Overwrite" HorizontalAlignment="Left" Width="174"/>
+            <ComboBoxItem Content="Overwrite in Folder 1" HorizontalAlignment="Left" Width="174"/>
+        </ComboBox>
+        <Label x:Name="label" FontSize="12" FontFamily="Tahoma" Content="Conflict Resolution" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="326,351,269,0" VerticalAlignment="Top" Height="16"/>
     </Grid>
 </UserControl>
